@@ -59,12 +59,12 @@ Route::post('/register',function (Request $request){
                 'users_pass'=>$p['pass']
             ]);
             $u->save();
-
             //Création de session 
             Session::push('users',$p['id']);
 
             return json_encode(['status'=>true,'message'=>"Utilisateur Inscrit avec succès"]);
         }else{
+            
             return json_encode(['status'=>false,'message'=>"Utilisateur déjà inscrit",'user'=>$u]);
         }
     }else{
